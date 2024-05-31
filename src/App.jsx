@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchDataFromApi } from "./utils/api";
 import { getGenres } from "./store/homeSlice";
 
@@ -11,11 +11,11 @@ import Details from "./pages/details/Details";
 import SearchResult from "./pages/searchResult/SearchResult";
 import Explore from "./pages/explore/Explore";
 import PageNotFound from "./pages/404/PageNotFound";
+import LoginModal from './components/loginModal/LoginModal';
 
 function App() {
     const dispatch = useDispatch();
-    const { url } = useSelector((state) => state.home);
-    console.log(url);
+    const [showModal, setShowModal] = useState(false); // State to manage modal visibility
 
     useEffect(() => {
         // Call to fetch genres, here it's a placeholder.
@@ -48,7 +48,8 @@ function App() {
 
     return (
         <BrowserRouter>
-            <Header />
+            <Header toggleModal={() => setShowModal(!showModal)} /> {/* Pass down toggleModal function */}
+            {showModal && <LoginModal />} {/* Render LoginModal only when showModal is true */}
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/:mediaType/:id" element={<Details />} />

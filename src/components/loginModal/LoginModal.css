@@ -1,0 +1,54 @@
+#body .modal_btn{
+    background: var(--blue-bg-secondary);
+    color: var(--white);
+    }
+    
+    
+    /* hr */
+    .separator {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: var(--grey-text);
+      }
+      
+      .separator::before,
+      .separator::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid var(--grey-text);
+      }
+      
+      .separator:not(:empty)::before {
+        margin-right: .25em;
+      }
+      
+      .separator:not(:empty)::after {
+        margin-left: .25em;
+      }
+    
+     #body .modal_height_btn{
+        height: 42px;
+        border-radius: 6px;
+    border: 1px solid #E0E0E0;
+      }
+    
+     #body .facebook_bg{
+        background: var(--blue-bg-primary);
+        color: var(--white);
+      }
+    
+      #body .modal{
+        font-family: var(--font-primary);
+      }
+    
+      #body .bg_input_grey{
+        background: var(--input-bg);
+    
+      }
+    
+      #body .login_label{
+        font-family: 'SF Pro Display'
+      }
+    
+    
